@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="nl" data-contrast="normaal" data-beweging="normaal" data-snel="nee">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Het Oneerlijke Spel — Kinderboekenweek 2026: Spot Aan!</title>
+  <meta name="description" content="Het Oneerlijke Spel — een klassikale theaterquiz voor groep 7 en 8 bij Kinderboekenweek 2026: Spot Aan!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/stijl.css?v=bouw-1">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎭</text></svg>">
+</head>
+<body>
+<div id="app" class="os-app">
+
+  <!-- Vaste theaterachtergrond -->
+  <div class="os-theater" aria-hidden="true">
+    <div class="os-lucht"></div>
+    <div class="os-spotkegel os-spotkegel-1"></div>
+    <div class="os-spotkegel os-spotkegel-2"></div>
+    <div class="os-vloer"></div>
+    <div class="os-gordijnzij os-gordijnzij-links"></div>
+    <div class="os-gordijnzij os-gordijnzij-rechts"></div>
+    <div class="os-lambrequin"></div>
+  </div>
+
+  <main id="schermen">
+
+    <!-- ============ 1. TITELSCHERM ============ -->
+    <section id="scherm-titel" class="os-scherm scherm-titel" aria-label="Titelscherm">
+      <div class="titel-spot" aria-hidden="true"></div>
+      <div class="titel-inhoud">
+        <h1 class="titel-logo">
+          <span class="titel-regel titel-regel-1">HET</span>
+          <span class="titel-regel titel-regel-2">ONEERLIJKE</span>
+          <span class="titel-regel titel-regel-3">SPEL</span>
+        </h1>
+        <p class="titel-sub">KINDERBOEKENWEEK 2026 · SPOT AAN!</p>
+        <div class="titel-knoppen">
+          <button id="knop-titel-start" class="knop knop-primair knop-groot">Spel starten</button>
+          <div class="titel-knoppen-rij">
+            <button id="knop-titel-uitleg" class="knop knop-secundair">Speluitleg</button>
+            <button id="knop-titel-instellingen" class="knop knop-secundair">Instellingen</button>
+            <button id="knop-titel-vragen" class="knop knop-secundair">Eigen vragen</button>
+          </div>
+        </div>
+      </div>
+      <footer class="os-footer">
+        <a href="https://www.meesterdanny.com" target="_blank" rel="noopener">www.meesterdanny.com</a>
+        <span class="footer-scheiding">·</span>
+        <a href="https://www.instagram.com/meester.danny" target="_blank" rel="noopener" class="footer-insta">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.8.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.3-.3.7-.3 1.8-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.1.7.3 1.8.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.8-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.3.3-.7.3-1.8.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.1-.7-.3-1.8-.3-1.3-.1-1.7-.1-4.8-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.2-8.3a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
+          meester.danny
+        </a>
+      </footer>
+    </section>
+
+    <!-- ============ 2. HOOFDMENU ============ -->
+    <section id="scherm-menu" class="os-scherm scherm-menu" hidden aria-label="Hoofdmenu">
+      <h2 class="menu-kop">
+        <span class="menu-kop-klein">Backstage bij</span>
+        Het Oneerlijke Spel
+      </h2>
+      <div class="menu-decor">
+        <button id="knop-menu-nieuw" class="menu-item menu-item-podium">
+          <span class="menu-item-visual" aria-hidden="true">
+            <span class="podiumbord">
+              <span class="podiumbord-lampjes"></span>
+              <span class="podiumbord-tekst">NIEUW<br>SPEL</span>
+              <span class="podiumbord-lampjes"></span>
+            </span>
+          </span>
+          <span class="menu-item-label">Nieuw spel</span>
+          <span class="menu-item-sub">Zet de teams klaar en start de voorstelling</span>
+        </button>
+        <button id="knop-menu-uitleg" class="menu-item menu-item-script">
+          <span class="menu-item-visual" aria-hidden="true">
+            <span class="script-boekje">📖<span class="script-regels"><i></i><i></i><i></i></span></span>
+          </span>
+          <span class="menu-item-label">Speluitleg</span>
+          <span class="menu-item-sub">Zo werkt het oneerlijke spel</span>
+        </button>
+        <button id="knop-menu-vragen" class="menu-item menu-item-bureau">
+          <span class="menu-item-visual" aria-hidden="true">
+            <span class="bureau">✍️<span class="bureau-lamp"></span></span>
+          </span>
+          <span class="menu-item-label">Eigen vragen</span>
+          <span class="menu-item-sub">Het schrijversbureau: maak je eigen vragenset</span>
+        </button>
+        <button id="knop-menu-instellingen" class="menu-item menu-item-paneel">
+          <span class="menu-item-visual" aria-hidden="true">
+            <span class="lichtpaneel"><i></i><i></i><i></i><i class="schuif"></i></span>
+          </span>
+          <span class="menu-item-label">Instellingen</span>
+          <span class="menu-item-sub">Het licht- en geluidspaneel</span>
+        </button>
+      </div>
+      <div class="menu-onder">
+        <button id="knop-menu-terug" class="knop knop-tekst">← Terug naar het titelscherm</button>
+      </div>
+    </section>
+
+    <!-- ============ 3. SPELUITLEG ============ -->
+    <section id="scherm-uitleg" class="os-scherm scherm-uitleg" hidden aria-label="Speluitleg">
+      <div class="paneel paneel-breed">
+        <h2 class="paneel-kop">Zo werkt het</h2>
+        <ol class="uitleg-stappen">
+          <li class="uitleg-stap"><span class="uitleg-nr">1</span><span class="uitleg-icoon" aria-hidden="true">👥</span><p>Verdeel de klas in twee, drie of vier teams.</p></li>
+          <li class="uitleg-stap"><span class="uitleg-nr">2</span><span class="uitleg-icoon" aria-hidden="true">🔦</span><p>Het actieve team kiest een genummerde spotlight.</p></li>
+          <li class="uitleg-stap"><span class="uitleg-nr">3</span><span class="uitleg-icoon" aria-hidden="true">❓</span><p>Achter iedere spotlight zit een verborgen vraag.</p></li>
+          <li class="uitleg-stap"><span class="uitleg-nr">4</span><span class="uitleg-icoon" aria-hidden="true">🎭</span><p>Na een goed antwoord kiest het actieve team: <strong>incasseren</strong> of blind <strong>uitdelen</strong>.</p></li>
+          <li class="uitleg-stap"><span class="uitleg-nr">5</span><span class="uitleg-icoon" aria-hidden="true">🎛</span><p>Na een fout antwoord krijgt de eerstvolgende tegenstander diezelfde keuze.</p></li>
+          <li class="uitleg-stap"><span class="uitleg-nr">6</span><span class="uitleg-icoon" aria-hidden="true">🎲</span><p>Plus en min zijn even waarschijnlijk. De puntenwaarde blijft vooraf altijd verborgen.</p></li>
+        </ol>
+        <div class="uitleg-letop">
+          <strong>Let op: het spel is expres oneerlijk.</strong>
+          <p>Ook uitgedeelde punten kunnen negatief zijn. Goed of fout verandert de kans op plus en min niet; niemand kent de waarde vooraf.</p>
+        </div>
+        <div class="paneel-knoppen">
+          <button id="knop-uitleg-klaar" class="knop knop-primair knop-groot">Ik begrijp het, spot aan!</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. INSTELLINGEN ============ -->
+    <section id="scherm-instellingen" class="os-scherm scherm-instellingen" hidden aria-label="Instellingen">
+      <div class="paneel paneel-breed paneel-scroll">
+        <h2 class="paneel-kop">⚙ Instellingen</h2>
+        <div id="instellingen-inhoud"></div>
+        <div class="paneel-knoppen">
+          <button id="knop-instellingen-terug" class="knop knop-primair">Klaar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. EIGEN VRAGEN (EDITOR) ============ -->
+    <section id="scherm-editor" class="os-scherm scherm-editor" hidden aria-label="Eigen vragen beheren">
+      <div class="paneel paneel-editor paneel-scroll">
+        <div class="editor-kopbalk">
+          <h2 class="paneel-kop">✍️ Eigen vragen</h2>
+          <button id="knop-editor-terug" class="knop knop-secundair">Klaar</button>
+        </div>
+        <div id="editor-inhoud"></div>
+      </div>
+    </section>
+
+    <!-- ============ 6. NIEUW SPEL (WIZARD) ============ -->
+    <section id="scherm-setup" class="os-scherm scherm-setup" hidden aria-label="Nieuw spel instellen">
+      <div class="paneel paneel-breed paneel-scroll">
+        <div class="setup-stappenbalk" id="setup-stappenbalk" aria-hidden="true"></div>
+        <div id="setup-inhoud"></div>
+        <div class="paneel-knoppen setup-knoppen">
+          <button id="knop-setup-vorige" class="knop knop-secundair">← Vorige</button>
+          <button id="knop-setup-volgende" class="knop knop-primair">Volgende →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. STARTANIMATIE ============ -->
+    <section id="scherm-startanim" class="os-scherm scherm-startanim" hidden aria-label="De voorstelling begint">
+      <div id="startanim-inhoud" class="startanim-inhoud"></div>
+      <button id="knop-startanim-overslaan" class="knop knop-tekst knop-overslaan">Overslaan ▸</button>
+    </section>
+
+    <!-- ============ 8. SPELSCHERM ============ -->
+    <section id="scherm-spel" class="os-scherm scherm-spel" hidden aria-label="Spelscherm">
+      <header class="spel-topbar">
+        <div class="topbar-links">
+          <span class="mini-logo" aria-hidden="true">🎭</span>
+          <span class="mini-logo-tekst">Het Oneerlijke Spel</span>
+        </div>
+        <div class="topbar-midden">
+          <span id="spel-vraagnr" class="vraagnr">Vraag 1 van 12</span>
+          <span id="spel-eindronde" class="eindronde-chip" hidden>🔥 Eindronde</span>
+        </div>
+        <div class="topbar-rechts">
+          <button id="knop-spel-muziek" class="knop-icoon" aria-label="Muziek aan of uit">🎵</button>
+          <button id="knop-spel-geluid" class="knop-icoon" aria-label="Geluidseffecten aan of uit">🔊</button>
+          <button id="knop-spel-fullscreen" class="knop-icoon" aria-label="Volledig scherm">⛶</button>
+          <button id="knop-spel-pauze" class="knop knop-secundair knop-pauze" aria-label="Pauze">⏸ Pauze</button>
+        </div>
+      </header>
+      <div id="spel-podium" class="spel-podium" aria-live="polite"></div>
+      <div id="spel-voortgang" class="spel-voortgang" aria-label="Voortgang"></div>
+      <div id="spel-scores" class="spel-scores" aria-label="Scorebord"></div>
+    </section>
+
+    <!-- ============ 9. EINDE ============ -->
+    <section id="scherm-einde" class="os-scherm scherm-einde" hidden aria-label="Einduitslag">
+      <div id="einde-inhoud" class="einde-inhoud"></div>
+    </section>
+
+  </main>
+
+  <!-- Gordijnen voor overgangen (boven alles) -->
+  <div id="overgang-gordijn" class="overgang-gordijn" aria-hidden="true" hidden>
+    <div class="overgang-helft overgang-links"></div>
+    <div class="overgang-helft overgang-rechts"></div>
+    <div id="overgang-tekst" class="overgang-tekst"></div>
+  </div>
+
+  <!-- ============ OVERLAYS ============ -->
+  <div id="overlay-pauze" class="overlay" hidden role="dialog" aria-modal="true" aria-label="Pauzemenu">
+    <div class="overlay-paneel paneel">
+      <h2 class="paneel-kop">⏸ Pauze</h2>
+      <div id="pauze-inhoud" class="pauze-knoppen"></div>
+    </div>
+  </div>
+
+  <div id="overlay-bevestig" class="overlay overlay-boven" hidden role="dialog" aria-modal="true" aria-label="Bevestiging">
+    <div class="overlay-paneel paneel paneel-smal">
+      <h2 id="bevestig-titel" class="paneel-kop">Weet je het zeker?</h2>
+      <p id="bevestig-tekst" class="bevestig-tekst"></p>
+      <div class="paneel-knoppen">
+        <button id="knop-bevestig-nee" class="knop knop-secundair">Nee, terug</button>
+        <button id="knop-bevestig-ja" class="knop knop-gevaar">Ja, doorgaan</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="overlay-hervat" class="overlay" hidden role="dialog" aria-modal="true" aria-label="Onafgemaakt spel gevonden">
+    <div class="overlay-paneel paneel paneel-smal">
+      <h2 id="hervat-titel" class="paneel-kop">🎭 Onafgemaakt spel</h2>
+      <p id="hervat-tekst" class="bevestig-tekst">Er is een onafgemaakt spel gevonden. Wil je verdergaan?</p>
+      <p id="hervat-detail" class="hervat-detail"></p>
+      <div class="paneel-knoppen">
+        <button id="knop-hervat-opnieuw" class="knop knop-secundair">Opnieuw beginnen</button>
+        <button id="knop-hervat-ja" class="knop knop-primair">Spel hervatten</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="overlay-vraagbewerken" class="overlay overlay-boven" hidden role="dialog" aria-modal="true" aria-label="Vraag bewerken">
+    <div class="overlay-paneel paneel paneel-scroll paneel-editor">
+      <div id="vraagbewerken-inhoud"></div>
+    </div>
+  </div>
+
+  <div id="melding" class="melding" hidden role="status" aria-live="polite"></div>
+</div>
+
+<script src="js/config.js?v=bouw-1"></script>
+<script src="js/vragen.js?v=bouw-1"></script>
+<script src="js/gebeurtenissen.js?v=bouw-1"></script>
+<script src="js/opslag.js?v=bouw-1"></script>
+<script src="js/geluid.js?v=bouw-1"></script>
+<script src="js/motor.js?v=bouw-1"></script>
+<script src="js/export.js?v=bouw-1"></script>
+<script src="js/editor.js?v=bouw-1"></script>
+<script src="js/ui.js?v=bouw-1"></script>
+</body>
+</html>
