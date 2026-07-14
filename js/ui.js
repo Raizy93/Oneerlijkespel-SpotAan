@@ -14,6 +14,8 @@ const UI = {
   timers: [],
   rolStop: null,
   meldingTimer: null,
+  fullscreenTipTimer: null,
+  fullscreenTipVerbergTimer: null,
   laatsteOpzet: null,
 
   // ---------- Hulpfuncties ----------
@@ -82,6 +84,7 @@ const UI = {
   },
 
   volledigScherm() {
+    this.sluitFullscreenTip();
     const d = document;
     if (d.fullscreenElement) {
       d.exitFullscreen().catch(() => {});
@@ -106,6 +109,8 @@ const UI = {
 
     this._bindVasteKnoppen();
     this._bindToetsenbord();
+    this.instellingenNaarKnoppen();
+    this.toonFullscreenTip();
     this._startTitelIntro();
 
     // onafgemaakt spel?
@@ -121,6 +126,9 @@ const UI = {
     k('knop-titel-uitleg', () => { this._uitlegTerug = 'scherm-titel'; this.scherm('scherm-uitleg'); });
     k('knop-titel-instellingen', () => { this._instTerug = 'scherm-titel'; this.openInstellingen(); });
     k('knop-titel-vragen', () => { this._editorTerug = 'scherm-titel'; this.scherm('scherm-editor'); VragenEditor.open(); });
+    k('knop-titel-muziek', () => this.wisselMuziek());
+    k('knop-titel-geluid', () => this.wisselEffecten());
+    k('knop-titel-fullscreen', () => this.volledigScherm());
 
     // menu
     k('knop-menu-nieuw', () => this.startWizard());
@@ -128,6 +136,11 @@ const UI = {
     k('knop-menu-vragen', () => { this._editorTerug = 'scherm-menu'; this.scherm('scherm-editor'); VragenEditor.open(); });
     k('knop-menu-instellingen', () => { this._instTerug = 'scherm-menu'; this.openInstellingen(); });
     k('knop-menu-terug', () => this.scherm('scherm-titel'));
+    k('knop-menu-muziek', () => this.wisselMuziek());
+    k('knop-menu-geluid', () => this.wisselEffecten());
+    k('knop-menu-fullscreen', () => this.volledigScherm());
+
+    k('knop-fullscreen-tip-sluiten', () => this.sluitFullscreenTip());
 
     // uitleg / instellingen / editor terug
     k('knop-uitleg-klaar', () => this.scherm(this._uitlegTerug || 'scherm-menu'));
@@ -175,8 +188,41 @@ const UI = {
 
     // gordijnknoppen bestaan niet: overgang is puur visueel
     document.addEventListener('fullscreenchange', () => {
-      const kn = this.el('knop-spel-fullscreen');
-      if (kn) kn.textContent = document.fullscreenElement ? '🗗' : '⛶';
+      this.werkFullscreenKnoppenBij();
+    });
+  },
+
+  toonFullscreenTip() {
+    const tip = this.el('fullscreen-tip');
+    if (!tip) return;
+    clearTimeout(this.fullscreenTipTimer);
+    clearTimeout(this.fullscreenTipVerbergTimer);
+    tip.hidden = false;
+    tip.classList.remove('verdwijnt');
+    requestAnimationFrame(() => tip.classList.add('zichtbaar'));
+    this.fullscreenTipTimer = setTimeout(() => this.sluitFullscreenTip(), 8000);
+  },
+
+  sluitFullscreenTip() {
+    const tip = this.el('fullscreen-tip');
+    if (!tip || tip.hidden) return;
+    clearTimeout(this.fullscreenTipTimer);
+    clearTimeout(this.fullscreenTipVerbergTimer);
+    tip.classList.remove('zichtbaar');
+    tip.classList.add('verdwijnt');
+    this.fullscreenTipVerbergTimer = setTimeout(() => {
+      tip.hidden = true;
+      tip.classList.remove('verdwijnt');
+    }, this.minderBeweging() ? 20 : 450);
+  },
+
+  werkFullscreenKnoppenBij() {
+    const actief = !!document.fullscreenElement;
+    ['knop-titel-fullscreen', 'knop-menu-fullscreen', 'knop-spel-fullscreen'].forEach((id) => {
+      const knop = this.el(id);
+      if (!knop) return;
+      knop.textContent = actief ? '🗗' : '⛶';
+      knop.setAttribute('aria-label', actief ? 'Volledig scherm verlaten' : 'Volledig scherm');
     });
   },
 
@@ -878,8 +924,15 @@ const UI = {
 
   // ---------- Spelscherm: vaste onderdelen ----------
   instellingenNaarKnoppen() {
-    this.el('knop-spel-muziek').classList.toggle('uit', !this.instellingen.muziekAan);
-    this.el('knop-spel-geluid').classList.toggle('uit', !this.instellingen.effectenAan);
+    ['knop-titel-muziek', 'knop-menu-muziek', 'knop-spel-muziek'].forEach((id) => {
+      const knop = this.el(id);
+      if (knop) knop.classList.toggle('uit', !this.instellingen.muziekAan);
+    });
+    ['knop-titel-geluid', 'knop-menu-geluid', 'knop-spel-geluid'].forEach((id) => {
+      const knop = this.el(id);
+      if (knop) knop.classList.toggle('uit', !this.instellingen.effectenAan);
+    });
+    this.werkFullscreenKnoppenBij();
   },
 
   wisselMuziek() {

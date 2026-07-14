@@ -25,10 +25,21 @@
     <div class="os-lambrequin"></div>
   </div>
 
+  <div id="fullscreen-tip" class="fullscreen-tip" role="status" hidden>
+    <span aria-hidden="true">⛶</span>
+    <span><strong>Tip:</strong> druk op <kbd>F</kbd> of gebruik de knop rechtsboven voor fullscreen. Dat geeft de beste spelervaring.</span>
+    <button id="knop-fullscreen-tip-sluiten" type="button" aria-label="Fullscreen-tip sluiten">×</button>
+  </div>
+
   <main id="schermen">
 
     <!-- ============ 1. TITELSCHERM ============ -->
     <section id="scherm-titel" class="os-scherm scherm-titel" aria-label="Titelscherm">
+      <div class="scherm-bediening" aria-label="Weergave en geluid">
+        <button id="knop-titel-muziek" class="knop-icoon" aria-label="Muziek aan of uit">🎵</button>
+        <button id="knop-titel-geluid" class="knop-icoon" aria-label="Geluidseffecten aan of uit">🔊</button>
+        <button id="knop-titel-fullscreen" class="knop-icoon" aria-label="Volledig scherm">⛶</button>
+      </div>
       <div class="titel-spot" aria-hidden="true"></div>
       <div class="titel-inhoud">
         <h1 class="titel-logo">
@@ -58,6 +69,11 @@
 
     <!-- ============ 2. HOOFDMENU ============ -->
     <section id="scherm-menu" class="os-scherm scherm-menu" hidden aria-label="Hoofdmenu">
+      <div class="scherm-bediening" aria-label="Weergave en geluid">
+        <button id="knop-menu-muziek" class="knop-icoon" aria-label="Muziek aan of uit">🎵</button>
+        <button id="knop-menu-geluid" class="knop-icoon" aria-label="Geluidseffecten aan of uit">🔊</button>
+        <button id="knop-menu-fullscreen" class="knop-icoon" aria-label="Volledig scherm">⛶</button>
+      </div>
       <h2 class="menu-kop">
         <span class="menu-kop-klein">Backstage bij</span>
         Het Oneerlijke Spel
